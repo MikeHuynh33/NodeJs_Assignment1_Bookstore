@@ -1,0 +1,30 @@
+extends layout
+block css
+    link(rel="stylesheet", href="/css/list.css")
+block header-content
+    // Navigation Hamberger for Mobile version
+    div.menu#menu
+        div.menu-bar#menu-bar
+            div#bar1.bar
+            div#bar2.bar
+            div#bar3.bar
+        nav.nav#nav
+            ul.nav__link
+                li
+                    a(href="/") Home
+                li
+                    a(href="/Books") Books
+                li
+                    a(href="/Lists") Your List
+    div.menu-bg#menu-bg
+block main-content
+    div.flex_container_listoforder
+        each Order in listOfOrder
+            div.flex_item_listoforder
+                div.orderNumer #{Order.orderNumer}
+                - var quatity = 0;
+                each book in Order.orderDetail
+                    div.bookName #{book.bookName}.
+                    - quatity += book.quality
+                    div.bookQuatity Qty: #{book.quality}
+                div.orderTotal Total: #{quatity}

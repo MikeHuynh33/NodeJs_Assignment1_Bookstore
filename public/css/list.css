@@ -1,0 +1,43 @@
+.flex_container_listoforder{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5em;
+    margin-left: 3em;
+    margin-right: 3em;
+    gap:1.5em;
+}
+.flex_item_listoforder{
+    flex-basis: calc(70%-6em);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 2em;
+    gap:0.6em;
+}
+.orderNumer{
+    background-color: green;
+    font-size: 1.3em;
+    font-weight: 600;
+    margin-bottom: 25px;
+    text-align: center;
+}
+.bookName{
+    font-size: 1.2em;
+}
+.bookQuatity{
+    display: block;
+    margin-left: auto;
+    border-bottom: 2px solid black;
+    
+}
+.orderTotal{
+    display: block;
+    font-size: 1.2em;
+    margin-top: 1em;
+    margin-left: auto;
+}

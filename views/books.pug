@@ -1,0 +1,57 @@
+extends layout
+block css
+    link(rel="stylesheet", href="/css/books.css")
+block header-content
+    // Navigation Hamberger for Mobile version
+    div.menu#menu
+        div.menu-bar#menu-bar
+            div#bar1.bar
+            div#bar2.bar
+            div#bar3.bar
+        nav.nav#nav
+            ul.nav__link
+                li
+                    a(href="/") Home
+                li
+                    a(href="/Books") Books
+                li
+                    a(href="/Lists") Your List
+    div(class="cart fa fa-shopping-cart" id="cart")
+    div.modal#modal
+        div.cartlist#cartlist
+            div(class="btn_empty" id="btn_empty") Empty Cart
+            div.itemList#itemList
+            div(class="btn_send" id="btn_send") Send Order
+    div.menu-bg#menu-bg
+block append scripts
+    script(src="/js/books.js")
+block main-content
+    div.bookList__container#bookList__container 
+        form(method="get")
+            label(for="bookName") Search your Books : <br>
+            input(type="text" id="bookName" name="bookName" placeholder="Search......")
+            input(type="submit" value="Search")
+        div.bookList__bookResult
+            if data
+                each value in data.items
+                    div.bookList__singlebook
+                        img(src=value.volumeInfo.imageLinks.thumbnail alt="bookImage") 
+                        p #{value.volumeInfo.title}
+                        p By #{value.volumeInfo.authors}
+                        -var n = 0;
+                        while n < 5 
+                            if n < value.volumeInfo.averageRating
+                                span(class="fa fa-star checked")
+                            else 
+                                span(class="fa fa-star")
+                            -n++
+                        -if(!value.volumeInfo.averageRating){
+                            -value.volumeInfo.averageRating = 0
+                        -}
+                        -if(!value.volumeInfo.ratingsCount){
+                            -value.volumeInfo.ratingsCount = 0
+                        -}
+                        span  #{value.volumeInfo.averageRating} - #{value.volumeInfo.ratingsCount} rates
+                        button.btn_Add#btn_Add(booktitle=value.volumeInfo.title) +
+    div#result
+

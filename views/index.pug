@@ -1,13 +1,27 @@
 extends layout
 
 block header-content
-    h1 Welcome to my homepage
-
+    // Navigation Hamberger for Mobile version
+    div.menu#menu
+        div.menu-bar#menu-bar
+            div#bar1.bar
+            div#bar2.bar
+            div#bar3.bar
+        nav.nav#nav
+            ul.nav__link
+                li
+                    a(href="#") Home
+                li
+                    a(href="/Books") Books
+                li
+                    a(href="/Lists") Your List
+    div.menu-bg#menu-bg
 block main-content
-    h1 This body of homepage 
-    p insert whatever u want
-block scripts append
-    script(src="/js/index2.js")
+    div.product__flexcontainer
+        div.product__Content
+            h2 Welcome to our Online Bookstore!
+            h3 Discover a World of Words, Imagination, and Knowledge.
+            p At our online bookstore, we believe in the power of books to inspire, educate, and entertain. We have curated an extensive collection of books across various genres, ensuring there's something for every reader's taste. Whether you're a literature enthusiast, a history buff, a science geek, or simply looking for a great story, we've got you covered.
+        button.btn_Books 
+            a(href="/Books") More
 block footer-content 
-    h1 This footer of homepage 
-    p insert whatever u want
